@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Error</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text will not be displayed if JavaScript fails.
+  </div>
+  <script>
+    //Simulate a network error.
+      fetch('nonexistent.txt').then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.text();
+      }).then(data => {
+          document.getElementById("myDiv").innerText = data;
+      }).catch(error => {
+          console.error('There has been a problem with your fetch operation:', error);
+          // Handle the error gracefully
+          document.getElementById("myDiv").innerText = "An error occurred.";
+      });
+  </script>
+</body>
+</html>
