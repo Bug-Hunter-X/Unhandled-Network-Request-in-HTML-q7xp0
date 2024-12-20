@@ -1,0 +1,1 @@
+This repository demonstrates an uncommon error scenario in HTML where a network request within JavaScript is not gracefully handled.  The bug.html file shows the initial flawed code, where failure to fetch 'nonexistent.txt' results in the content of #myDiv not being updated.  The solution.html file provides an improved version with robust error handling.
